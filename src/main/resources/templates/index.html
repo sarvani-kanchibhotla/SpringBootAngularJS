@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="todoapp" >
+
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./js/todolist.js"></script>
+<title>SpringBoot Angular Application</title>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+</style>
+</head>
+
+<body  ng-controller="TodoCtrl">
+<h2>MY TODO'S</h2>
+<form name="form" ng-submit="addJob()">
+
+<input type="text" size="50" ng-model="form.job" placeholder="Add New Job" required /> 
+<input type="submit" value="Add New Job" ng-disabled="addForm.$invalid">
+</form>
+<br/><br/>
+
+
+<br/><br/>
+
+<table>
+<tr> 
+
+<th> Current Jobs</th> 
+
+<th> Actions</th>
+</tr>
+<tr ng-repeat="joblist in jobs">
+
+<td>{{joblist.job}}</td>
+<td> <button ng-click="editJob(joblist)">Edit</button> | <button ng-click="removeJob(joblist)">Remove</button> </td>
+
+</tr>
+</table>
+
+</body>
+</html>
+
+    
+
+
+
